@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { Github, Twitter, Terminal, Shield, Sparkles } from "lucide-react";
+import { Terminal, Shield, Sparkles, Code2, AtSign } from "lucide-react";
 import BracketTag from "@/components/ui/BracketTag";
 import Button from "@/components/ui/Button";
 import { springPhysics } from "@/lib/motion";
@@ -116,7 +116,7 @@ export default function ManifestoSection() {
                 external={true}
                 className="font-mono text-xs text-[#a1a1aa] hover:text-white"
               >
-                <Github className="h-3.5 w-3.5 mr-1" />
+                <Code2 className="h-3.5 w-3.5 mr-1" />
                 <span>GitHub</span>
               </Button>
 
@@ -127,7 +127,7 @@ export default function ManifestoSection() {
                 external={true}
                 className="font-mono text-xs text-[#a1a1aa] hover:text-white"
               >
-                <Twitter className="h-3.5 w-3.5 mr-1 text-[#00b4d8]" />
+                <AtSign className="h-3.5 w-3.5 mr-1 text-[#00b4d8]" />
                 <span>@sabrybelal</span>
               </Button>
             </div>

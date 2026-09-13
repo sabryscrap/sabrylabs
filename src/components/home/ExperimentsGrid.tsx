@@ -7,7 +7,6 @@ import {
   Terminal,
   Monitor,
   Globe,
-  Apple,
   ExternalLink,
   ShoppingBag,
 } from "lucide-react";
@@ -282,7 +281,7 @@ export default function ExperimentsGrid() {
                     )}
                     {item.platforms.includes("macos") && (
                       <span title="macOS Native" className="hover:text-white transition-colors">
-                        <Apple className="h-3.5 w-3.5" />
+                        <Monitor className="h-3.5 w-3.5" />
                       </span>
                     )}
                     {item.platforms.includes("web") && (
