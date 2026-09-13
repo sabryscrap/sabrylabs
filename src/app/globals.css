@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #f7f7f4;
+  --card-bg: #ffffff;
+  --panel-bg: #ffffff;
+  --panel-secondary: #f0f0eb;
+  --border-color: #000000;
+  
+  --accent-primary: #ff4400;
+  --accent-mint: #00a854;
+  --accent-cyan: #0088cc;
+  --accent-amber: #e69500;
+
+  --text-main: #000000;
+  --text-heading: #000000;
+  --text-muted: #52525b;
+  --text-caption: #71717a;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Swiss Grid Blueprint Pattern */
+.bg-swiss-grid {
+  background-color: #f7f7f4;
+  background-image: 
+    linear-gradient(#000000 1px, transparent 1px),
+    linear-gradient(90deg, #000000 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+.bg-swiss-subtle {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Hard Offset Shadows (Gumroad / Swiss Brutalism) */
+.shadow-brutal-sm {
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.shadow-brutal {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.shadow-brutal-lg {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.shadow-brutal-orange {
+  box-shadow: 4px 4px 0px #ff4400;
+}
+
+/* Tactile Interactive Classes (Teenage Engineering x Swiss Graphic Punk x Gumroad) */
+@layer components {
+  .btn-brutal-primary {
+    background-color: #ff4400;
+    color: #ffffff;
+    font-weight: 700;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 3px;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.12s ease;
+  }
+  .btn-brutal-primary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000000;
+    background-color: #ff3300;
+  }
+  .btn-brutal-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #000000;
+  }
+
+  .btn-brutal-secondary {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 3px;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.12s ease;
+  }
+  .btn-brutal-secondary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000000;
+    background-color: #f4f4ee;
+  }
+  .btn-brutal-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #000000;
+  }
+
+  .card-brutal {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 4px;
+  }
+
+  .card-brutal-interactive {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 4px;
+    transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card-brutal-interactive:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000000;
+  }
+
+  /* Monospace Badge */
+  .badge-brutal {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1.5px solid #000000;
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    box-shadow: 2px 2px 0px #000000;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #000000;
+    font-feature-settings: "tnum" 1;
+  }
+}
