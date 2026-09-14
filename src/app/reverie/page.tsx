@@ -405,11 +405,8 @@ export default function ReverieStorefront() {
           <div className="relative card-brutal p-6 sm:p-10 bg-[#f4f4ee] shadow-brutal-lg">
             <CornerCrosshairs />
 
-            {/* QA Batch & Barcode Top Band */}
-            <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b-2 border-black font-mono text-[10px] font-bold">
-              <div className="tracking-[0.25em] text-black select-none uppercase font-bold">
-                ||| | |||| || | | |||
-              </div>
+            {/* Card Badges Header */}
+            <div className="flex items-center justify-end gap-2 mb-4 pb-3 border-b-2 border-black font-mono text-[10px] font-bold">
               <div className="flex items-center gap-2">
                 <span className="badge-brutal bg-[#f4f4ee] text-black border border-black font-bold">
                   LOT 2026 // QC PASS
