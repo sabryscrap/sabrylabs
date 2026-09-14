@@ -64,7 +64,7 @@ export default function ReverieStorefront() {
           {/* Dual Action CTAs (Gumroad Style) */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 font-mono">
             <a
-              href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
+              href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
               className="lemonsqueezy-button btn-brutal-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-wider tabular-nums"
               data-theme="light"
             >
@@ -498,7 +498,7 @@ export default function ReverieStorefront() {
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-6 border-t-2 border-black font-mono">
               <a
-                href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
+                href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
                 className="lemonsqueezy-button btn-brutal-primary flex-1 py-4 text-center text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 tabular-nums"
                 data-theme="light"
               >

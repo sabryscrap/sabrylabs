@@ -107,7 +107,7 @@ export const CATALOG_APPS: CatalogApp[] = [
     actions: {
       primary: {
         label: "Buy Lifetime ($19)",
-        href: "https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1",
+        href: "https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1",
         isLemonSqueezy: true,
       },
       secondary: {

@@ -31,8 +31,8 @@ const DELIVERABLES: DeliverableItem[] = [
 ];
 
 export default function PricingCard() {
-  const checkoutUrl = "https://sabrylabs.lemonsqueezy.com/buy/reverie-lifetime?embed=1";
-  const fallbackUrl = "https://sabrylabs.lemonsqueezy.com/buy/reverie-lifetime";
+  const checkoutUrl = "https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1";
+  const fallbackUrl = "https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa";
 
   return (
     <section className="relative w-full py-16" aria-label="Lifetime Pricing & License">

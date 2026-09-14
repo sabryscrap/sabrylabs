@@ -132,7 +132,7 @@ export default function FlagshipCard() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {/* Lemon Squeezy Buy Button */}
               <a
-                href="https://sabrylabs.lemonsqueezy.com/buy/reverie-lifetime?embed=1"
+                href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
                 className="lemonsqueezy-button inline-flex items-center justify-center gap-2 h-11 px-6 font-mono font-semibold text-xs tracking-wider uppercase rounded-lg bg-[#ff5722] hover:bg-[#f4511e] text-white shadow-glow-btn transition-colors"
                 data-theme="dark"
               >

@@ -46,7 +46,7 @@ export default function Navbar() {
         {/* Action Button */}
         <div className="flex items-center gap-3">
           <a
-            href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
+            href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
             className="lemonsqueezy-button btn-brutal-primary hidden sm:inline-flex items-center gap-1.5 px-4 py-2 font-mono text-[11.5px] uppercase tracking-wider tabular-nums"
             data-theme="light"
           >
@@ -100,7 +100,7 @@ export default function Navbar() {
             </Link>
             <div className="pt-2">
               <a
-                href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
+                href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
                 className="lemonsqueezy-button btn-brutal-primary flex w-full items-center justify-center gap-2 py-2.5 text-center font-mono text-xs uppercase tracking-wider"
                 data-theme="light"
               >

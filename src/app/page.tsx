@@ -224,7 +224,7 @@ export default function SabryLabsStudioHomepage() {
                   </Link>
 
                   <a
-                    href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
+                    href="https://sabrylabs.lemonsqueezy.com/checkout/buy/282cd981-bc53-405a-b8ed-b56634a73faa?embed=1"
                     className="lemonsqueezy-button btn-brutal-secondary px-5 py-3 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 tabular-nums"
                     data-theme="light"
                   >
