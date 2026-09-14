@@ -3,7 +3,7 @@ import ReverieFeaturesPage, { metadata as reverieMetadata } from "../reverie/fea
 
 export const metadata: Metadata = {
   ...reverieMetadata,
-  title: "Feature Radar & Community Upvoting — Sabry Labs",
+  title: "Feature Requests — Sabry Labs",
 };
 
 export default ReverieFeaturesPage;

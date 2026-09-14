@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Lightbulb, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { X, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { FeatureCategory, CATEGORY_CONFIG } from "@/lib/features-data";
 
 interface ProposeFeatureModalProps {
@@ -33,7 +33,7 @@ export default function ProposeFeatureModal({
     e.preventDefault();
     if (!title.trim() || !description.trim()) return;
 
-    const trimmedAuthor = author.trim() ? (author.startsWith("@") ? author.trim() : `@${author.trim()}`) : "@community";
+    const trimmedAuthor = author.trim() ? (author.startsWith("@") ? author.trim() : `@${author.trim()}`) : "@anonymous";
 
     onSubmit({
       title: title.trim(),
@@ -57,193 +57,145 @@ export default function ProposeFeatureModal({
   const githubNewIssueUrl = `https://github.com/sabryscrap/sabrylabs/issues/new?title=${encodeURIComponent(
     `[Feature Request]: ${lastSubmittedTitle || title}`
   )}&body=${encodeURIComponent(
-    `### Feature Summary\n${lastSubmittedTitle || title}\n\n### Category\n${CATEGORY_CONFIG[category].label}\n\n### Problem It Solves\n${description}\n\n### Proposed By\n${author || "Anonymous Community Member"}`
+    `### Feature\n${lastSubmittedTitle || title}\n\n### Category\n${CATEGORY_CONFIG[category].label}\n\n### Description\n${description}\n\n### Proposed By\n${author || "Anonymous"}`
   )}`;
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-xs animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-xs"
       onClick={handleResetAndClose}
     >
       <div
         className="relative max-h-[92vh] max-w-xl w-full border-2 border-black bg-white p-5 sm:p-7 shadow-brutal-lg overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Drafting Crosshairs */}
-        <span className="absolute top-2 left-2 font-mono text-[10px] text-zinc-400 select-none pointer-events-none leading-none z-10">+</span>
-        <span className="absolute top-2 right-2 font-mono text-[10px] text-zinc-400 select-none pointer-events-none leading-none z-10">+</span>
-        <span className="absolute bottom-2 left-2 font-mono text-[10px] text-zinc-400 select-none pointer-events-none leading-none z-10">+</span>
-        <span className="absolute bottom-2 right-2 font-mono text-[10px] text-zinc-400 select-none pointer-events-none leading-none z-10">+</span>
-
-        {/* Modal Header */}
+        {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b-2 border-black">
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 bg-[#ff4400] text-white border-2 border-black rounded-[2px] shadow-brutal-xs">
-              <Lightbulb className="h-4 w-4" strokeWidth={2.5} />
-            </span>
-            <div>
-              <div className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-wider">
-                RADAR // ZERO-ACCOUNT SUBMISSION
-              </div>
-              <h2 className="font-space text-lg sm:text-xl font-black text-black">
-                Propose Feature for Reverie
-              </h2>
-            </div>
-          </div>
-
+          <h2 className="font-space text-lg font-black text-black">
+            Propose a Feature
+          </h2>
           <button
             type="button"
             onClick={handleResetAndClose}
             aria-label="Close modal"
-            className="p-1.5 bg-white hover:bg-black hover:text-white text-black border-2 border-black rounded-[2px] transition-colors cursor-pointer"
+            className="p-1.5 hover:bg-black hover:text-white text-black border-2 border-black rounded-[2px] transition-colors cursor-pointer"
           >
             <X className="h-4 w-4" strokeWidth={2.5} />
           </button>
         </div>
 
-        {/* Success Confirmation State */}
         {submitted ? (
           <div className="py-8 text-center space-y-4">
-            <div className="mx-auto w-12 h-12 bg-emerald-100 text-emerald-700 border-2 border-black rounded-[3px] flex items-center justify-center shadow-brutal-xs">
-              <CheckCircle2 className="h-6 w-6" strokeWidth={2.5} />
-            </div>
+            <CheckCircle2 className="h-8 w-8 mx-auto text-emerald-600" strokeWidth={2.5} />
             <div>
-              <h3 className="font-space text-xl font-black text-black">
-                Feature Idea Added to Live Radar!
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-zinc-700 font-sans max-w-md mx-auto leading-relaxed">
-                Your proposal has been published to your active radar board and upvoted by you. It is saved in your local session without requiring any account login.
+              <h3 className="font-space text-lg font-black text-black">Submitted</h3>
+              <p className="mt-1 text-sm text-zinc-600 font-sans">
+                Your idea is saved locally. To make it permanent, post it to our GitHub backlog:
               </p>
             </div>
 
-            {/* Optional GitHub Archival CTA */}
-            <div className="pt-4 border-t border-zinc-200 text-left bg-[#f7f7f4] p-4 border-2 border-black rounded-[2px]">
-              <div className="font-mono text-[10px] font-bold text-[#ff4400] uppercase tracking-wider mb-1">
-                PERMANENT REPO RADAR
-              </div>
-              <p className="text-xs text-zinc-800 font-medium leading-relaxed">
-                Want to ensure the founder permanently tracks this in the open-source engineering backlog? Click below to post a prefilled ticket to the GitHub repository:
-              </p>
-              <a
-                href={githubNewIssueUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 btn-brutal-primary px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider inline-flex items-center gap-2"
-              >
-                <span>Post to Official GitHub Backlog</span>
-                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} />
-              </a>
-            </div>
+            <a
+              href={githubNewIssueUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-brutal-primary px-4 py-2 text-xs font-mono font-bold uppercase inline-flex items-center gap-2"
+            >
+              <span>Post to GitHub</span>
+              <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+            </a>
 
-            <div className="pt-2">
+            <div>
               <button
                 type="button"
                 onClick={handleResetAndClose}
-                className="btn-brutal-secondary px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider"
+                className="btn-brutal-secondary px-6 py-2 text-xs font-mono font-bold uppercase"
               >
-                Done / Return to Board
+                Done
               </button>
             </div>
           </div>
         ) : (
-          /* Submission Form */
-          <form onSubmit={handleSubmit} className="mt-5 space-y-4 font-sans text-left">
-            {/* Title */}
+          <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-left">
             <div>
-              <label htmlFor="feature-title" className="block font-mono text-xs font-bold text-black uppercase mb-1">
-                Feature Headline <span className="text-[#ff4400]">*</span>
+              <label htmlFor="feature-title" className="block font-mono text-xs font-bold text-black mb-1">
+                Title <span className="text-[#ff4400]">*</span>
               </label>
               <input
                 id="feature-title"
                 type="text"
                 required
                 maxLength={90}
-                placeholder="e.g., Obsidian Markdown Vault Focus Session Logger"
+                placeholder="Short, clear title for your feature idea"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-[#fdfdfb] text-black font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#ff4400] font-medium"
+                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-[#ff4400]"
               />
-              <span className="text-[10px] font-mono text-zinc-500 mt-0.5 block text-right">
-                {title.length}/90 chars
-              </span>
             </div>
 
-            {/* Category Dropdown */}
             <div>
-              <label htmlFor="feature-category" className="block font-mono text-xs font-bold text-black uppercase mb-1">
-                Subsystem Category <span className="text-[#ff4400]">*</span>
+              <label htmlFor="feature-category" className="block font-mono text-xs font-bold text-black mb-1">
+                Category <span className="text-[#ff4400]">*</span>
               </label>
               <select
                 id="feature-category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value as FeatureCategory)}
-                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-[#fdfdfb] text-black font-mono text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#ff4400] cursor-pointer"
+                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-white text-black font-mono text-xs focus:outline-none focus:ring-2 focus:ring-[#ff4400] cursor-pointer"
               >
                 {(Object.keys(CATEGORY_CONFIG) as FeatureCategory[]).map((cat) => (
                   <option key={cat} value={cat}>
-                    [{CATEGORY_CONFIG[cat].code}] — {CATEGORY_CONFIG[cat].label}
+                    {CATEGORY_CONFIG[cat].label}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* Problem Solved & Narrative */}
             <div>
-              <label htmlFor="feature-desc" className="block font-mono text-xs font-bold text-black uppercase mb-1">
-                The Problem It Solves <span className="text-[#ff4400]">*</span>
+              <label htmlFor="feature-desc" className="block font-mono text-xs font-bold text-black mb-1">
+                Description <span className="text-[#ff4400]">*</span>
               </label>
               <textarea
                 id="feature-desc"
                 required
-                rows={4}
+                rows={3}
                 maxLength={450}
-                placeholder="What friction do you experience in your focus workflow? How should Reverie solve it?"
+                placeholder="What problem does this solve? How should it work?"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-[#fdfdfb] text-black font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#ff4400] leading-relaxed font-medium resize-none"
+                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-[#ff4400] resize-none"
               />
-              <span className="text-[10px] font-mono text-zinc-500 mt-0.5 block text-right">
-                {description.length}/450 chars
-              </span>
             </div>
 
-            {/* Optional Author Handle */}
             <div>
-              <label htmlFor="feature-author" className="block font-mono text-xs font-bold text-black uppercase mb-1">
-                Author Tag / Nickname <span className="text-zinc-500 font-normal">(Optional)</span>
+              <label htmlFor="feature-author" className="block font-mono text-xs font-bold text-black mb-1">
+                Your name <span className="text-zinc-400 font-normal">(optional)</span>
               </label>
               <input
                 id="feature-author"
                 type="text"
                 maxLength={30}
-                placeholder="@yourhandle or nickname (defaults to @community)"
+                placeholder="@handle or name"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
-                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-[#fdfdfb] text-black font-mono text-xs focus:outline-none focus:ring-2 focus:ring-[#ff4400]"
+                className="w-full px-3 py-2 border-2 border-black rounded-[2px] bg-white text-black font-mono text-xs focus:outline-none focus:ring-2 focus:ring-[#ff4400]"
               />
             </div>
 
-            {/* Zero-Login Privacy Notice */}
-            <div className="p-3 bg-[#f4f4ee] border-2 border-black rounded-[2px] font-mono text-[11px] text-zinc-700 leading-normal">
-              <span className="font-bold text-black">NO LOGIN BARRIER:</span> We do not require an account, password, or cookies. Your suggestion is assigned a cryptographic anonymous client token and published immediately.
-            </div>
-
-            {/* Actions */}
             <div className="pt-3 border-t-2 border-black flex items-center justify-end gap-3 font-mono">
               <button
                 type="button"
                 onClick={handleResetAndClose}
-                className="btn-brutal-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider"
+                className="btn-brutal-secondary px-4 py-2 text-xs font-bold uppercase"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="btn-brutal-primary px-6 py-2.5 text-xs font-bold uppercase tracking-wider"
+                className="btn-brutal-primary px-6 py-2 text-xs font-bold uppercase"
               >
-                Submit Proposal (Zero Login)
+                Submit
               </button>
             </div>
           </form>
