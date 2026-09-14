@@ -74,6 +74,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/reverie/features" className="hover:text-[#ff4400] transition-colors inline-flex items-center gap-1.5 font-bold text-black">
+                  <span>Feature Radar &amp; Upvoting</span>
+                  <span className="text-[9px] bg-[#ff4400] text-white px-1 py-0.2 rounded-[1px] font-mono font-black">VOTE</span>
+                </Link>
+              </li>
+              <li>
                 <a
                   href="/downloads/Reverie-Setup.exe"
                   className="hover:text-[#ff4400] transition-colors inline-flex items-center gap-1"

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ArrowUpRight,
   Download,
@@ -10,6 +11,8 @@ import {
   Layout,
   Flame,
   FileText,
+  Lightbulb,
+  ChevronUp,
 } from "lucide-react";
 import MockupCarousel from "@/components/reverie/MockupCarousel";
 import AudioTester from "@/components/reverie/AudioTester";
@@ -521,6 +524,66 @@ export default function ReverieStorefront() {
               <span className="font-mono text-[11px] text-black font-bold">
                 CAD SPEC: 0-CLOUD • HARDWARE TOLERANCE: ±0.00mm • SECURED VIA LEMON SQUEEZY
               </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7.5 PUBLIC ROADMAP & FEATURE UPVOTING CTA ─── */}
+      <section className="w-full border-b-2 border-black bg-white px-4 py-16 sm:px-6 lg:px-8 bg-swiss-subtle">
+        <div className="mx-auto max-w-5xl">
+          <div className="relative card-brutal p-6 sm:p-10 bg-[#f4f4ee] overflow-hidden">
+            <CornerCrosshairs />
+
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div className="space-y-3 max-w-xl">
+                <div className="inline-flex items-center gap-2">
+                  <span className="badge-brutal text-black bg-white">
+                    COMMUNITY RADAR // OPEN ROADMAP
+                  </span>
+                  <span className="badge-brutal bg-[#ff4400] text-white">
+                    ZERO LOGIN
+                  </span>
+                </div>
+
+                <h3 className="font-space text-2xl sm:text-3xl font-black text-black leading-tight tracking-[-0.02em]">
+                  Help Shape What We Build Next. Upvote Features &amp; Propose Ideas.
+                </h3>
+
+                <p className="text-sm sm:text-base text-zinc-700 font-sans leading-relaxed font-medium">
+                  We don&apos;t make product decisions in closed corporate meetings. Explore our public engineering backlog, upvote your favorite acoustics and desktop integrations, or propose your own idea with zero account creation required.
+                </p>
+
+                {/* Top preview specs */}
+                <div className="pt-2 flex flex-wrap items-center gap-2 font-mono text-[11px] font-bold">
+                  <span className="px-2.5 py-1 bg-white border border-black rounded-[2px] inline-flex items-center gap-1">
+                    <ChevronUp className="h-3.5 w-3.5 text-[#ff4400]" strokeWidth={3} />
+                    <span>142 Votes: Obsidian Vault Focus Logger</span>
+                  </span>
+                  <span className="px-2.5 py-1 bg-white border border-black rounded-[2px] inline-flex items-center gap-1">
+                    <ChevronUp className="h-3.5 w-3.5 text-[#ff4400]" strokeWidth={3} />
+                    <span>118 Votes: Global Hotkey Distraction Dump</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3 font-mono">
+                <Link
+                  href="/reverie/features"
+                  className="btn-brutal-primary px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 text-center shadow-brutal-xs hover:shadow-brutal"
+                >
+                  <span>Explore Feature Radar</span>
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={2.2} />
+                </Link>
+                <Link
+                  href="/reverie/features"
+                  className="btn-brutal-secondary px-6 py-3 text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 text-center"
+                >
+                  <Lightbulb className="h-3.5 w-3.5 text-[#ff4400]" />
+                  <span>Propose An Idea</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -90,6 +90,14 @@ export default function Navbar() {
             >
               [03] About
             </Link>
+            <Link
+              href="/reverie/features"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 hover:text-[#ff4400] flex items-center justify-between"
+            >
+              <span>[04] Feature Radar</span>
+              <span className="text-[9px] bg-[#ff4400] text-white px-1.5 py-0.2 rounded-[1px] font-black">VOTE</span>
+            </Link>
             <div className="pt-2">
               <a
                 href="https://sabrylabs.lemonsqueezy.com/buy/reverie?embed=1"
