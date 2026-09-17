@@ -46,30 +46,45 @@
   </script>
 
   <style>
-    /* Root Design Tokens */
+    /* ========================================================================= */
+    /* 1. CSS VARIABLES (LIGHT & DARK TOKENS)                                    */
+    /* ========================================================================= */
     :root {
-      --bg-base: #f7f7f4;
-      --surface: #ffffff;
-      --surface-subtle: #f4f4ee;
-      --border: #000000;
-      --text: #000000;
-      --text-muted: #52525b;
-      --accent: #ff4400;
+      --bg-page: #f7f7f4;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f4f4ee;
+      --border-color: #000000;
+      --text-main: #000000;
+      --text-heading: #000000;
+      --text-body: #3f3f46;
+      --text-muted: #71717a;
+      --code-bg: #f4f4ee;
+      --code-text: #000000;
+      --code-border: #000000;
+      --shadow-color: #000000;
+      --grid-color: rgba(0, 0, 0, 0.04);
     }
 
-    .dark {
-      --bg-base: #09090b;
-      --surface: #121217;
-      --surface-subtle: #1a1a24;
-      --border: #3f3f46;
-      --text: #fafafa;
+    html.dark {
+      --bg-page: #09090b;
+      --bg-surface: #121217;
+      --bg-subtle: #1a1a24;
+      --border-color: #27272a;
+      --text-main: #fafafa;
+      --text-heading: #ffffff;
+      --text-body: #d4d4d8;
       --text-muted: #a1a1aa;
-      --accent: #ff4400;
+      --code-bg: #27272a;
+      --code-text: #ff7733;
+      --code-border: #3f3f46;
+      --shadow-color: #000000;
+      --grid-color: rgba(255, 255, 255, 0.04);
     }
 
+    /* Base Body Rule */
     body {
-      background-color: var(--bg-base);
-      color: var(--text);
+      background-color: var(--bg-page) !important;
+      color: var(--text-main) !important;
       font-family: 'Inter', sans-serif;
       transition: background-color 0.15s ease, color 0.15s ease;
     }
@@ -77,88 +92,77 @@
     /* Swiss Subtle Grid Pattern */
     .bg-swiss-subtle {
       background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
       background-size: 32px 32px;
     }
 
-    .dark .bg-swiss-subtle {
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    }
-
     /* Hard Brutalist Box Shadows */
-    .shadow-brutal-xs { box-shadow: 1.5px 1.5px 0px #000000; }
-    .shadow-brutal-sm { box-shadow: 2px 2px 0px #000000; }
-    .shadow-brutal-btn { box-shadow: 3px 3px 0px #000000; }
-    .shadow-brutal { box-shadow: 4px 4px 0px #000000; }
-    .shadow-brutal-lg { box-shadow: 6px 6px 0px #000000; }
+    .shadow-brutal-xs { box-shadow: 1.5px 1.5px 0px var(--shadow-color); }
+    .shadow-brutal-sm { box-shadow: 2px 2px 0px var(--shadow-color); }
+    .shadow-brutal-btn { box-shadow: 3px 3px 0px var(--shadow-color); }
+    .shadow-brutal { box-shadow: 4px 4px 0px var(--shadow-color); }
+    .shadow-brutal-lg { box-shadow: 6px 6px 0px var(--shadow-color); }
     .shadow-brutal-orange { box-shadow: 4px 4px 0px #ff4400; }
-
-    .dark .shadow-brutal-xs { box-shadow: 1.5px 1.5px 0px #000000; }
-    .dark .shadow-brutal-sm { box-shadow: 2px 2px 0px #000000; }
-    .dark .shadow-brutal-btn { box-shadow: 3px 3px 0px #000000; }
-    .dark .shadow-brutal { box-shadow: 4px 4px 0px #000000; }
-    .dark .shadow-brutal-lg { box-shadow: 6px 6px 0px #000000; }
 
     /* Button Physics (Instant Mechanical Press) */
     .btn-brutal-primary {
-      background-color: #ff4400;
-      color: #ffffff;
+      background-color: #ff4400 !important;
+      color: #ffffff !important;
       font-weight: 700;
-      border: 2px solid #000000;
-      box-shadow: 3px 3px 0px #000000;
+      border: 2px solid #000000 !important;
+      box-shadow: 3px 3px 0px #000000 !important;
       border-radius: 3px;
       transition: transform 0.06s ease, box-shadow 0.06s ease, background-color 0.1s ease;
     }
     .btn-brutal-primary:hover {
       transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px #000000;
-      background-color: #ff3300;
+      box-shadow: 4px 4px 0px #000000 !important;
+      background-color: #ff3300 !important;
     }
     .btn-brutal-primary:active {
       transform: translate(2px, 2px);
-      box-shadow: 0px 0px 0px #000000;
+      box-shadow: 0px 0px 0px #000000 !important;
     }
 
     .btn-brutal-secondary {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: var(--bg-surface);
+      color: var(--text-main);
       font-weight: 700;
-      border: 2px solid #000000;
-      box-shadow: 3px 3px 0px #000000;
+      border: 2px solid var(--border-color);
+      box-shadow: 3px 3px 0px var(--shadow-color);
       border-radius: 3px;
       transition: transform 0.06s ease, box-shadow 0.06s ease, background-color 0.1s ease;
     }
     .btn-brutal-secondary:hover {
       transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px #000000;
-      background-color: #f4f4ee;
+      box-shadow: 4px 4px 0px var(--shadow-color);
+      background-color: var(--bg-subtle);
     }
     .btn-brutal-secondary:active {
       transform: translate(2px, 2px);
-      box-shadow: 0px 0px 0px #000000;
+      box-shadow: 0px 0px 0px var(--shadow-color);
     }
 
     /* Cards */
     .card-brutal {
-      background-color: #ffffff;
-      border: 2px solid #000000;
-      box-shadow: 4px 4px 0px #000000;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      box-shadow: 4px 4px 0px var(--shadow-color);
       border-radius: 4px;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
     }
 
     .card-brutal-interactive {
-      background-color: #ffffff;
-      border: 2px solid #000000;
-      box-shadow: 4px 4px 0px #000000;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      box-shadow: 4px 4px 0px var(--shadow-color);
       border-radius: 4px;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
     }
     .card-brutal-interactive:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px #000000;
+      box-shadow: 6px 6px 0px var(--shadow-color);
     }
 
     /* Badges */
@@ -166,35 +170,17 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: 1.5px solid #000000;
+      border: 1.5px solid var(--border-color);
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       padding: 3px 8px;
-      box-shadow: 2px 2px 0px #000000;
+      box-shadow: 2px 2px 0px var(--shadow-color);
       border-radius: 2px;
-      background-color: #ffffff;
-      color: #000000;
-    }
-
-    /* Dark mode overrides for cards */
-    .dark .card-brutal,
-    .dark .card-brutal-interactive {
-      background-color: #121217;
-      border-color: #3f3f46;
-      box-shadow: 4px 4px 0px #000000;
-    }
-    .dark .btn-brutal-secondary {
-      background-color: #1a1a22;
-      color: #ffffff;
-      border-color: #3f3f46;
-    }
-    .dark .badge-brutal {
-      border-color: #52525b;
-      background-color: #181820;
-      color: #ffffff;
+      background-color: var(--bg-surface);
+      color: var(--text-main);
     }
 
     /* Code Snippet Box */
@@ -203,27 +189,216 @@
       font-size: 11.5px;
       background-color: #121216;
       color: #e4e4e7;
-      border: 2px solid #000000;
+      border: 2px solid var(--border-color);
       border-radius: 3px;
       padding: 12px 14px;
       overflow-x: auto;
     }
+
+    /* ========================================================================= */
+    /* 2. COMPREHENSIVE TACTICAL DARK THEME OVERRIDES                             */
+    /* ========================================================================= */
+    html.dark body {
+      background-color: #09090b !important;
+      color: #fafafa !important;
+    }
+
+    /* Header Nav in Dark Mode */
+    html.dark header {
+      background-color: rgba(18, 18, 23, 0.95) !important;
+      border-color: #27272a !important;
+    }
+    html.dark header nav a {
+      color: #d4d4d8 !important;
+    }
+    html.dark header nav a:hover {
+      color: #ff4400 !important;
+    }
+
+    /* Hero Section & Dividers in Dark Mode */
+    html.dark section.border-b-2 {
+      background-color: #0d0d14 !important;
+      border-color: #27272a !important;
+    }
+
+    /* Card Containers in Dark Mode */
+    html.dark .card-brutal,
+    html.dark .card-brutal-interactive,
+    html.dark .card-surface {
+      background-color: #121217 !important;
+      border-color: #27272a !important;
+      box-shadow: 4px 4px 0px #000000 !important;
+    }
+    html.dark .card-brutal:hover,
+    html.dark .card-brutal-interactive:hover {
+      border-color: #3f3f46 !important;
+      box-shadow: 6px 6px 0px #000000 !important;
+    }
+
+    /* All Headings & Black Text in Dark Mode -> Crisp White */
+    html.dark h1,
+    html.dark h2,
+    html.dark h3,
+    html.dark h4,
+    html.dark .text-black,
+    html.dark .heading-white {
+      color: #ffffff !important;
+    }
+
+    /* Body Text & Paragraphs in Dark Mode -> High-Contrast Light Gray */
+    html.dark p,
+    html.dark .text-zinc-800,
+    html.dark .text-zinc-700 {
+      color: #d4d4d8 !important; /* Crisp readable silver-gray */
+    }
+
+    /* Muted Labels & Timestamps in Dark Mode */
+    html.dark .text-zinc-600,
+    html.dark .text-zinc-500 {
+      color: #a1a1aa !important; /* Medium readable label */
+    }
+
+    /* Corner Crosshairs in Dark Mode */
+    html.dark .text-zinc-400 {
+      color: #52525b !important;
+    }
+
+    /* Borders & Horizontal Dividers in Dark Mode */
+    html.dark .border-black,
+    html.dark .border-zinc-200,
+    html.dark .border-zinc-300,
+    html.dark .divide-zinc-200 {
+      border-color: #27272a !important;
+    }
+
+    /* Secondary / Sub-band Putty Backgrounds -> Dark Technical Charcoal */
+    html.dark .bg-\[\#f4f4ee\],
+    html.dark .bg-\[\#fdfdfb\],
+    html.dark .bg-zinc-100 {
+      background-color: #181822 !important;
+      color: #fafafa !important;
+      border-color: #27272a !important;
+    }
+
+    /* Inline Code Pills in Dark Mode */
+    html.dark code,
+    html.dark .code-pill {
+      background-color: #22222e !important;
+      color: #ff8855 !important;
+      border: 1px solid #3f3f46 !important;
+    }
+
+    /* Badges in Dark Mode */
+    html.dark .badge-brutal {
+      background-color: #181822 !important;
+      color: #fafafa !important;
+      border-color: #3f3f46 !important;
+      box-shadow: 2px 2px 0px #000000 !important;
+    }
+    html.dark .badge-brutal.bg-\[\#ff4400\] {
+      background-color: #ff4400 !important;
+      color: #ffffff !important;
+      border-color: #000000 !important;
+    }
+    html.dark .badge-brutal.bg-black {
+      background-color: #27272a !important;
+      color: #ffffff !important;
+      border-color: #52525b !important;
+    }
+
+    /* Secondary Buttons in Dark Mode */
+    html.dark .btn-brutal-secondary {
+      background-color: #181822 !important;
+      color: #ffffff !important;
+      border-color: #3f3f46 !important;
+      box-shadow: 3px 3px 0px #000000 !important;
+    }
+    html.dark .btn-brutal-secondary:hover {
+      background-color: #222230 !important;
+      border-color: #52525b !important;
+      box-shadow: 4px 4px 0px #000000 !important;
+    }
+
+    /* Ghost Buttons in Dark Mode */
+    html.dark .btn-ghost {
+      background-color: transparent !important;
+      color: #ffffff !important;
+      border-color: #52525b !important;
+    }
+    html.dark .btn-ghost:hover {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+
+    /* Form Inputs in Dark Mode */
+    html.dark input[type="text"],
+    html.dark select,
+    html.dark textarea {
+      background-color: #161620 !important;
+      color: #ffffff !important;
+      border-color: #3f3f46 !important;
+    }
+    html.dark input::placeholder,
+    html.dark textarea::placeholder {
+      color: #71717a !important;
+    }
+    html.dark select option {
+      background-color: #161620 !important;
+      color: #ffffff !important;
+    }
+
+    /* Upvote unvoted button in dark mode */
+    html.dark .upvote-unvoted {
+      background-color: #181822 !important;
+      color: #ffffff !important;
+      border-color: #3f3f46 !important;
+    }
+    html.dark .upvote-unvoted:hover {
+      background-color: #ff4400 !important;
+      color: #ffffff !important;
+    }
+
+    /* Segmented Tabs in Dark Mode */
+    html.dark .segmented-container {
+      background-color: #121217 !important;
+      border-color: #3f3f46 !important;
+    }
+    html.dark .segmented-btn-active {
+      background-color: #27272a !important;
+      color: #ffffff !important;
+    }
+    html.dark .segmented-btn-inactive {
+      background-color: #121217 !important;
+      color: #a1a1aa !important;
+      border-color: #3f3f46 !important;
+    }
+    html.dark .segmented-btn-inactive:hover {
+      background-color: #1c1c24 !important;
+      color: #ffffff !important;
+    }
+
+    /* Footer in Dark Mode */
+    html.dark footer {
+      background-color: #09090b !important;
+      border-color: #27272a !important;
+      color: #a1a1aa !important;
+    }
   </style>
 </head>
 
-<body class="min-h-screen bg-[#f7f7f4] text-black antialiased selection:bg-[#ff4400] selection:text-white">
+<body class="min-h-screen antialiased selection:bg-[#ff4400] selection:text-white">
 
   <!-- ========================================================================= -->
   <!-- STICKY MASTHEAD / NAVBAR                                                  -->
   <!-- ========================================================================= -->
-  <header class="sticky top-0 z-50 w-full border-b-2 border-black bg-white/95 backdrop-blur-md">
+  <header class="sticky top-0 z-50 w-full border-b-2 border-black bg-white/95 backdrop-blur-md transition-colors duration-150">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="h-8 w-8 bg-[#ff4400] border-2 border-black rounded-[3px] shadow-brutal-sm flex items-center justify-center font-mono font-black text-white text-xs">
           SL
         </div>
         <div>
-          <div class="font-space font-black text-base tracking-tight leading-none">
+          <div class="font-space font-black text-base tracking-tight leading-none text-black">
             SABRY LABS
           </div>
           <div class="font-mono text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">
@@ -233,7 +408,7 @@
       </div>
 
       <!-- Jump Nav -->
-      <nav class="hidden lg:flex items-center gap-6 font-mono text-xs font-bold uppercase tracking-wider">
+      <nav class="hidden lg:flex items-center gap-6 font-mono text-xs font-bold uppercase tracking-wider text-black">
         <a href="#philosophy" class="hover:text-[#ff4400] transition-colors">[01] Manifesto</a>
         <a href="#colors" class="hover:text-[#ff4400] transition-colors">[02] Palette</a>
         <a href="#typography" class="hover:text-[#ff4400] transition-colors">[03] Type</a>
@@ -244,9 +419,9 @@
         <a href="#forms" class="hover:text-[#ff4400] transition-colors">[08] Forms</a>
       </nav>
 
-      <!-- Theme Switcher & Actions -->
+      <!-- Theme Switcher -->
       <div class="flex items-center gap-2">
-        <button id="themeToggle" class="btn-brutal-secondary px-3 py-1.5 font-mono text-xs font-bold uppercase flex items-center gap-1.5 cursor-pointer">
+        <button id="themeToggle" class="btn-brutal-secondary px-3.5 py-1.5 font-mono text-xs font-bold uppercase flex items-center gap-2 cursor-pointer shadow-brutal-sm">
           <span id="themeIcon">☀️</span>
           <span id="themeLabel">SWISS LIGHT</span>
         </button>
@@ -257,10 +432,10 @@
   <!-- ========================================================================= -->
   <!-- HERO SPECIFICATION HEADER                                                 -->
   <!-- ========================================================================= -->
-  <section class="border-b-2 border-black bg-white px-4 py-12 sm:px-6 lg:px-8 bg-swiss-subtle">
+  <section class="border-b-2 border-black bg-white px-4 py-12 sm:px-6 lg:px-8 bg-swiss-subtle transition-colors duration-150">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-wrap items-center gap-2 mb-4">
-        <span class="badge-brutal bg-[#f4f4ee]">OFFICIAL DESIGN LANGUAGE</span>
+        <span class="badge-brutal bg-[#f4f4ee]">[00] SPECIFICATION</span>
         <span class="badge-brutal bg-[#ff4400] text-white">SWISS NEO-BRUTALISM</span>
         <span class="badge-brutal bg-black text-white">DIETER RAMS FUNCTIONALISM</span>
       </div>
@@ -276,15 +451,16 @@
       </p>
 
       <div class="mt-6 pt-5 border-t border-zinc-200 flex flex-wrap items-center gap-6 font-mono text-xs font-bold text-zinc-600">
-        <div>CORE INK: <span class="text-black font-black">#000000 (2px SOLID)</span></div>
+        <div>CORE INK: <span class="text-black font-black">#000000 / #27272A</span></div>
         <div>ACCENT: <span class="text-[#ff4400] font-black">#FF4400 (SIGNAL ORANGE)</span></div>
-        <div>BASE: <span class="text-black font-black">#F7F7F4 (STUDIO BOND)</span></div>
-        <div>CORNER RADIUS: <span class="text-black font-black">2px — 4px MAX</span></div>
+        <div>LIGHT CANVAS: <span class="text-black font-black">#F7F7F4</span></div>
+        <div>DARK CANVAS: <span class="text-black font-black">#09090B</span></div>
+        <div>RADII: <span class="text-black font-black">2px — 4px MAX</span></div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN WRAPPER -->
+  <!-- MAIN CONTENT CONTAINER -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
 
     <!-- ======================================================================= -->
@@ -293,61 +469,61 @@
     <section id="philosophy" class="space-y-6">
       <div class="flex items-center gap-3">
         <span class="badge-brutal bg-[#ff4400] text-white">[01] // PHILOSOPHY</span>
-        <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">The 5 Structural Laws</h2>
+        <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">The 6 Structural Laws</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Law 1 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 01]</span>
           <h3 class="font-space text-lg font-black text-black">Zero Blurring &amp; Zero Glow</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            Never use colorful drop-shadow glows (<code class="bg-zinc-100 px-1 font-mono">shadow-orange/30</code>) or blur filters on buttons. Elevation is expressed via <strong>hard, solid black offset drop shadows</strong> (<code class="bg-zinc-100 px-1 font-mono">3px 3px 0px #000</code>).
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            Never use colorful drop-shadow glows (<code class="code-pill px-1 font-mono">shadow-orange/30</code>) or blur filters on buttons. Elevation is expressed via <strong>hard, solid black offset drop shadows</strong> (<code class="code-pill px-1 font-mono">3px 3px 0px #000</code>).
           </p>
         </div>
 
         <!-- Law 2 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 02]</span>
           <h3 class="font-space text-lg font-black text-black">Precision 2px Structural Ink</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            All card outlines, inputs, and button boundaries are rendered with exactly <code class="bg-zinc-100 px-1 font-mono">border: 2px solid #000000</code>. Hairline borders are forbidden; lines represent real physical enclosures.
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            All card outlines, inputs, and button boundaries are rendered with exactly <code class="code-pill px-1 font-mono">border: 2px solid</code>. Hairline borders are forbidden; lines represent real physical enclosures.
           </p>
         </div>
 
         <!-- Law 3 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 03]</span>
           <h3 class="font-space text-lg font-black text-black">Micro-Fillet Corners (2px–4px)</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            No pill buttons or bubbly 16px cards. Radii emulate CNC-milled aluminum: <code class="bg-zinc-100 px-1 font-mono">rounded-[2px]</code> for small tags, <code class="bg-zinc-100 px-1 font-mono">rounded-[3px]</code> for buttons, and <code class="bg-zinc-100 px-1 font-mono">rounded-[4px]</code> for master cards.
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            No pill buttons or bubbly 16px cards. Radii emulate CNC-milled aluminum: <code class="code-pill px-1 font-mono">rounded-[2px]</code> for small tags, <code class="code-pill px-1 font-mono">rounded-[3px]</code> for buttons, and <code class="code-pill px-1 font-mono">rounded-[4px]</code> for master cards.
           </p>
         </div>
 
         <!-- Law 4 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 04]</span>
           <h3 class="font-space text-lg font-black text-black">Physical Tactile Press</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            Buttons do not fade opacity on click. On <code class="bg-zinc-100 px-1 font-mono">:active</code>, buttons physically translate down-right <code class="bg-zinc-100 px-1 font-mono">translate(2px, 2px)</code> while shadow reduces to <code class="bg-zinc-100 px-1 font-mono">0px</code>, replicating an authentic mechanical push switch.
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            Buttons do not fade opacity on click. On <code class="code-pill px-1 font-mono">:active</code>, buttons physically translate down-right <code class="code-pill px-1 font-mono">translate(2px, 2px)</code> while shadow reduces to <code class="code-pill px-1 font-mono">0px</code>, replicating an authentic mechanical push switch.
           </p>
         </div>
 
         <!-- Law 5 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 05]</span>
           <h3 class="font-space text-lg font-black text-black">Bracketed Data Indexing</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            Headings and technical metrics are prefixed with bracketed numerals and uppercase tags: <code class="bg-zinc-100 px-1 font-mono">[01] // DIAL</code>, <code class="bg-zinc-100 px-1 font-mono">[SYS_PASS]</code>, <code class="bg-zinc-100 px-1 font-mono">LOT 2026</code>.
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            Headings and technical metrics are prefixed with bracketed numerals and uppercase tags: <code class="code-pill px-1 font-mono">[01] // DIAL</code>, <code class="code-pill px-1 font-mono">[SYS_PASS]</code>, <code class="code-pill px-1 font-mono">LOT 2026</code>.
           </p>
         </div>
 
         <!-- Law 6 -->
-        <div class="relative card-brutal p-6 bg-white space-y-3">
+        <div class="relative card-brutal p-6 space-y-3">
           <span class="font-mono text-xs font-bold text-[#ff4400]">[LAW 06]</span>
           <h3 class="font-space text-lg font-black text-black">Drafting Crosshairs</h3>
-          <p class="text-xs text-zinc-700 leading-relaxed">
-            Signature plus-signs (<code class="bg-zinc-100 px-1 font-mono">+</code>) sit 6px inside card corners in muted zinc, anchoring the architectural blueprint aesthetic.
+          <p class="text-xs text-zinc-700 leading-relaxed font-sans font-medium">
+            Signature plus-signs (<code class="code-pill px-1 font-mono">+</code>) sit 6px inside card corners in muted zinc, anchoring the architectural blueprint aesthetic.
           </p>
         </div>
       </div>
@@ -357,7 +533,7 @@
     <!-- SECTION 2: COLOR PALETTE & TOKENS                                       -->
     <!-- ======================================================================= -->
     <section id="colors" class="space-y-6">
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div class="flex items-center gap-3">
           <span class="badge-brutal bg-[#ff4400] text-white">[02] // COLOR PALETTE</span>
           <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">Chromatic Tokens</h2>
@@ -367,8 +543,8 @@
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         <!-- Swatch: Signal Orange -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#ff4400')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#ff4400] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#ff4400')">
+          <div style="background-color: #ff4400;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #FF4400
           </div>
           <div class="font-space font-bold text-xs text-black">Signal Orange</div>
@@ -376,8 +552,8 @@
         </div>
 
         <!-- Swatch: Stark Black -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#000000')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#000000] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#000000')">
+          <div style="background-color: #000000;" class="h-20 w-full border-2 border-zinc-700 rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #000000
           </div>
           <div class="font-space font-bold text-xs text-black">Structural Ink</div>
@@ -385,8 +561,8 @@
         </div>
 
         <!-- Swatch: Studio Canvas -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#f7f7f4')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#f7f7f4] mb-2.5 flex items-center justify-center font-mono font-black text-black text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#f7f7f4')">
+          <div style="background-color: #f7f7f4;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-black text-xs shadow-brutal-xs">
             #F7F7F4
           </div>
           <div class="font-space font-bold text-xs text-black">Studio Paper</div>
@@ -394,8 +570,8 @@
         </div>
 
         <!-- Swatch: Technical Putty -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#f4f4ee')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#f4f4ee] mb-2.5 flex items-center justify-center font-mono font-black text-black text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#f4f4ee')">
+          <div style="background-color: #f4f4ee;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-black text-xs shadow-brutal-xs">
             #F4F4EE
           </div>
           <div class="font-space font-bold text-xs text-black">Technical Putty</div>
@@ -403,8 +579,8 @@
         </div>
 
         <!-- Swatch: Mint Rest -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#00a854')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#00a854] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#00a854')">
+          <div style="background-color: #00a854;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #00A854
           </div>
           <div class="font-space font-bold text-xs text-black">Technical Mint</div>
@@ -412,8 +588,8 @@
         </div>
 
         <!-- Swatch: Chronometric Cyan -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#0088cc')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#0088cc] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#0088cc')">
+          <div style="background-color: #0088cc;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #0088CC
           </div>
           <div class="font-space font-bold text-xs text-black">Chrono Cyan</div>
@@ -421,8 +597,8 @@
         </div>
 
         <!-- Swatch: Technical Amber -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#e69500')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#e69500] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#e69500')">
+          <div style="background-color: #e69500;" class="h-20 w-full border-2 border-black rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #E69500
           </div>
           <div class="font-space font-bold text-xs text-black">Technical Amber</div>
@@ -430,8 +606,8 @@
         </div>
 
         <!-- Swatch: OLED Pure Dark Base -->
-        <div class="swatch-card p-3 card-brutal bg-white cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#09090b')">
-          <div class="h-20 w-full border-2 border-black rounded-[2px] bg-[#09090b] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
+        <div class="swatch-card p-3 card-brutal cursor-pointer group hover:-translate-y-1 transition-transform" onclick="copyColor('#09090b')">
+          <div style="background-color: #09090b;" class="h-20 w-full border-2 border-zinc-700 rounded-[2px] mb-2.5 flex items-center justify-center font-mono font-black text-white text-xs shadow-brutal-xs">
             #09090B
           </div>
           <div class="font-space font-bold text-xs text-black">Tactical Obsidian</div>
@@ -449,14 +625,14 @@
         <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">The Tri-Font Architecture</h2>
       </div>
 
-      <div class="card-brutal p-6 sm:p-8 bg-white space-y-6">
+      <div class="card-brutal p-6 sm:p-8 space-y-6">
         <!-- Spec 1: Display / Space Grotesk -->
         <div class="border-b-2 border-black pb-6 space-y-2">
           <div class="flex items-center justify-between font-mono text-[10px] font-bold text-zinc-500 uppercase">
             <span>Display Headings // Space Grotesk Bold/Black</span>
             <span>tracking-[-0.04em]</span>
           </div>
-          <div class="font-space text-3xl sm:text-5xl font-black tracking-[-0.04em] text-black">
+          <div class="font-space text-3xl sm:text-5xl font-black tracking-[-0.04em] text-black leading-tight">
             The Focus Instrument for Obsessive Makers.
           </div>
           <div class="font-mono text-xs text-[#ff4400] font-bold">
@@ -500,10 +676,10 @@
             <span>tabular-nums • uppercase</span>
           </div>
           <div class="font-mono text-base sm:text-lg font-bold text-black flex flex-wrap items-center gap-4 tabular-nums">
-            <span class="bg-[#f4f4ee] px-2 py-1 border border-black rounded-[2px]">[01] // DIAL: 25:00</span>
+            <span class="bg-[#f4f4ee] px-2.5 py-1 border border-black rounded-[2px]">[01] // DIAL: 25:00</span>
             <span class="text-[#ff4400]">FLOW: +04:12</span>
             <span>STREAK: 14 DAYS</span>
-            <span class="text-emerald-700">STATUS: AUDIT_PASS</span>
+            <span class="text-emerald-500">STATUS: AUDIT_PASS</span>
           </div>
           <div class="font-mono text-xs text-[#ff4400] font-bold">
             font-family: 'JetBrains Mono', monospace; font-weight: 700;
@@ -521,46 +697,46 @@
         <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">Corners &amp; Blueprint Crosshairs</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 font-mono text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-mono text-center">
         <!-- 0px / Sharp 90 -->
-        <div class="card-brutal p-5 bg-white space-y-2 !rounded-none">
+        <div class="card-brutal p-5 space-y-2 !rounded-none">
           <div class="text-xs font-black text-[#ff4400]">rounded-none (0px)</div>
-          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-none flex items-center justify-center text-xs font-bold">
+          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-none flex items-center justify-center text-xs font-bold text-black">
             SHARP 90°
           </div>
-          <p class="text-[11px] text-zinc-600 font-sans">Used for table cells, divider tabs, and architectural grids.</p>
+          <p class="text-[11px] text-zinc-600 font-sans font-medium">Used for table cells, divider tabs, and architectural grids.</p>
         </div>
 
         <!-- 2px / Micro Fillet -->
-        <div class="card-brutal p-5 bg-white space-y-2 !rounded-[2px]">
+        <div class="card-brutal p-5 space-y-2 !rounded-[2px]">
           <div class="text-xs font-black text-[#ff4400]">rounded-[2px] (2px)</div>
-          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[2px] flex items-center justify-center text-xs font-bold">
+          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[2px] flex items-center justify-center text-xs font-bold text-black">
             MICRO FILLET
           </div>
-          <p class="text-[11px] text-zinc-600 font-sans">Used for badges, tags, input fields, and checkboxes.</p>
+          <p class="text-[11px] text-zinc-600 font-sans font-medium">Used for badges, tags, input fields, and checkboxes.</p>
         </div>
 
         <!-- 3px / CNC Fillet -->
-        <div class="card-brutal p-5 bg-white space-y-2 !rounded-[3px]">
+        <div class="card-brutal p-5 space-y-2 !rounded-[3px]">
           <div class="text-xs font-black text-[#ff4400]">rounded-[3px] (3px)</div>
-          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[3px] flex items-center justify-center text-xs font-bold">
+          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[3px] flex items-center justify-center text-xs font-bold text-black">
             BUTTON RADIUS
           </div>
-          <p class="text-[11px] text-zinc-600 font-sans">Official button radius for <code class="bg-zinc-100 px-1 font-mono">.btn-brutal-*</code>.</p>
+          <p class="text-[11px] text-zinc-600 font-sans font-medium">Official button radius for <code class="code-pill px-1 font-mono">.btn-brutal-*</code>.</p>
         </div>
 
         <!-- 4px / Container Fillet -->
-        <div class="card-brutal p-5 bg-white space-y-2 !rounded-[4px]">
+        <div class="card-brutal p-5 space-y-2 !rounded-[4px]">
           <div class="text-xs font-black text-[#ff4400]">rounded-[4px] (4px)</div>
-          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[4px] flex items-center justify-center text-xs font-bold">
+          <div class="h-16 border-2 border-black bg-[#f4f4ee] rounded-[4px] flex items-center justify-center text-xs font-bold text-black">
             MASTER CARD
           </div>
-          <p class="text-[11px] text-zinc-600 font-sans">Maximum radius for cards, dialog modals, and panels.</p>
+          <p class="text-[11px] text-zinc-600 font-sans font-medium">Maximum radius for cards, dialog modals, and panels.</p>
         </div>
       </div>
 
       <!-- Live Blueprint Crosshairs Example -->
-      <div class="relative card-brutal p-8 bg-white space-y-3">
+      <div class="relative card-brutal p-8 space-y-3">
         <!-- Inset Corner Crosshairs -->
         <span class="absolute top-2 left-2 font-mono text-xs text-zinc-400 select-none pointer-events-none leading-none">+</span>
         <span class="absolute top-2 right-2 font-mono text-xs text-zinc-400 select-none pointer-events-none leading-none">+</span>
@@ -573,8 +749,8 @@
         <h3 class="font-space text-xl font-black text-black">
           Architectural Plus-Sign Corner Inset
         </h3>
-        <p class="text-sm text-zinc-700 font-sans leading-relaxed max-w-2xl">
-          Positioned <code class="font-mono bg-zinc-100 px-1 text-xs">top-2 left-2</code> with <code class="font-mono bg-zinc-100 px-1 text-xs">pointer-events-none select-none text-zinc-400</code>. These subtle crosshairs frame cards like technical drafting drawings.
+        <p class="text-sm text-zinc-700 font-sans leading-relaxed max-w-2xl font-medium">
+          Positioned <code class="code-pill font-mono px-1 text-xs">top-2 left-2</code> with <code class="code-pill font-mono px-1 text-xs">pointer-events-none select-none text-zinc-400</code>. These subtle crosshairs frame cards like technical drafting drawings.
         </p>
       </div>
     </section>
@@ -590,31 +766,31 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-center">
         <!-- 2px -->
-        <div class="p-6 bg-white border-2 border-black rounded-[3px] shadow-brutal-sm space-y-2">
+        <div class="p-6 card-brutal space-y-2 !shadow-brutal-sm">
           <div class="text-xs font-black text-black">shadow-brutal-sm</div>
-          <div class="text-xs text-zinc-600 font-bold">2px 2px 0px #000</div>
-          <div class="text-[11px] text-zinc-500 font-sans">Used on badges and small interactive icons.</div>
+          <div class="text-xs text-[#ff4400] font-bold">2px 2px 0px #000</div>
+          <div class="text-[11px] text-zinc-600 font-sans font-medium">Used on badges and small interactive icons.</div>
         </div>
 
         <!-- 3px -->
-        <div class="p-6 bg-white border-2 border-black rounded-[3px] shadow-brutal-btn space-y-2">
+        <div class="p-6 card-brutal space-y-2 !shadow-brutal-btn">
           <div class="text-xs font-black text-black">shadow-brutal-btn</div>
-          <div class="text-xs text-zinc-600 font-bold">3px 3px 0px #000</div>
-          <div class="text-[11px] text-zinc-500 font-sans">The signature button offset.</div>
+          <div class="text-xs text-[#ff4400] font-bold">3px 3px 0px #000</div>
+          <div class="text-[11px] text-zinc-600 font-sans font-medium">The signature button offset.</div>
         </div>
 
         <!-- 4px -->
-        <div class="p-6 bg-white border-2 border-black rounded-[3px] shadow-brutal space-y-2">
+        <div class="p-6 card-brutal space-y-2 !shadow-brutal">
           <div class="text-xs font-black text-black">shadow-brutal</div>
-          <div class="text-xs text-zinc-600 font-bold">4px 4px 0px #000</div>
-          <div class="text-[11px] text-zinc-500 font-sans">Used on standard cards and cards on hover.</div>
+          <div class="text-xs text-[#ff4400] font-bold">4px 4px 0px #000</div>
+          <div class="text-[11px] text-zinc-600 font-sans font-medium">Used on standard cards and cards on hover.</div>
         </div>
 
         <!-- 6px -->
-        <div class="p-6 bg-white border-2 border-black rounded-[3px] shadow-brutal-lg space-y-2">
+        <div class="p-6 card-brutal space-y-2 !shadow-brutal-lg">
           <div class="text-xs font-black text-black">shadow-brutal-lg</div>
-          <div class="text-xs text-zinc-600 font-bold">6px 6px 0px #000</div>
-          <div class="text-[11px] text-zinc-500 font-sans">Used on pricing spotlight cards &amp; modals.</div>
+          <div class="text-xs text-[#ff4400] font-bold">6px 6px 0px #000</div>
+          <div class="text-[11px] text-zinc-600 font-sans font-medium">Used on pricing spotlight cards &amp; modals.</div>
         </div>
       </div>
     </section>
@@ -623,7 +799,7 @@
     <!-- SECTION 6: BUTTONS & INTERACTIVE CONTROLS                               -->
     <!-- ======================================================================= -->
     <section id="buttons" class="space-y-6">
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div class="flex items-center gap-3">
           <span class="badge-brutal bg-[#ff4400] text-white">[06] // BUTTONS</span>
           <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">Tactile Button Suite</h2>
@@ -631,7 +807,7 @@
         <span class="font-mono text-xs text-zinc-500 font-bold">CLICK TO TEST MECHANICAL PRESS</span>
       </div>
 
-      <div class="card-brutal p-6 sm:p-8 bg-white space-y-8">
+      <div class="card-brutal p-6 sm:p-8 space-y-8">
         <!-- Row 1: Primary, Secondary, Ghost, Destructive -->
         <div class="flex flex-wrap items-center gap-4">
           <!-- Primary -->
@@ -650,23 +826,23 @@
           </button>
 
           <!-- Outline Ghost -->
-          <button class="px-4 py-2 bg-transparent text-black border-2 border-black rounded-[2px] font-mono text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors cursor-pointer">
+          <button class="btn-ghost px-4 py-2 border-2 border-black rounded-[2px] font-mono text-xs font-bold uppercase transition-colors cursor-pointer">
             Ghost Invert
           </button>
 
           <!-- Disabled -->
-          <button disabled class="px-5 py-2.5 bg-zinc-200 text-zinc-500 border-2 border-zinc-400 rounded-[3px] font-mono text-xs font-bold uppercase cursor-not-allowed">
+          <button disabled class="px-5 py-2.5 bg-zinc-200 text-zinc-500 border-2 border-zinc-400 rounded-[3px] font-mono text-xs font-bold uppercase cursor-not-allowed opacity-60">
             Locked State
           </button>
         </div>
 
-        <!-- Row 2: Tactile Upvote Button (As seen in Reverie Feature Radar) -->
+        <!-- Row 2: Tactile Upvote Button & Segmented Tabs -->
         <div class="pt-6 border-t border-zinc-200 flex flex-wrap items-center gap-8">
           <div>
             <div class="font-mono text-xs font-bold text-zinc-500 uppercase mb-2">Tactile Upvote Button State:</div>
             <div class="flex items-center gap-4 font-mono">
               <!-- Normal Unvoted -->
-              <button class="flex flex-col items-center justify-center min-w-[56px] py-2 px-1 border-2 border-black rounded-[2px] bg-[#f4f4ee] hover:bg-[#ff4400] text-black hover:text-white transition-all cursor-pointer">
+              <button class="upvote-unvoted flex flex-col items-center justify-center min-w-[56px] py-2 px-1 border-2 border-black rounded-[2px] bg-[#f4f4ee] hover:bg-[#ff4400] text-black hover:text-white transition-all cursor-pointer">
                 <span class="text-sm font-black">▲</span>
                 <span class="text-xs font-black mt-0.5">86</span>
                 <span class="text-[9px] font-bold uppercase">VOTE</span>
@@ -684,14 +860,14 @@
           <!-- Segmented Tab Switcher -->
           <div>
             <div class="font-mono text-xs font-bold text-zinc-500 uppercase mb-2">Segmented Control Tabs:</div>
-            <div class="inline-flex border-2 border-black rounded-[2px] bg-white overflow-hidden font-mono text-xs font-bold">
-              <button class="px-4 py-2 bg-black text-white cursor-pointer">
+            <div class="segmented-container inline-flex border-2 border-black rounded-[2px] bg-white overflow-hidden font-mono text-xs font-bold">
+              <button class="segmented-btn-active px-4 py-2 bg-black text-white cursor-pointer">
                 [01] KANBAN
               </button>
-              <button class="px-4 py-2 text-black hover:bg-zinc-100 border-l-2 border-black cursor-pointer">
+              <button class="segmented-btn-inactive px-4 py-2 text-black hover:bg-zinc-100 border-l-2 border-black cursor-pointer">
                 [02] RANKED LIST
               </button>
-              <button class="px-4 py-2 text-black hover:bg-zinc-100 border-l-2 border-black cursor-pointer">
+              <button class="segmented-btn-inactive px-4 py-2 text-black hover:bg-zinc-100 border-l-2 border-black cursor-pointer">
                 [03] ARCHIVE
               </button>
             </div>
@@ -700,7 +876,7 @@
 
         <!-- CSS Snippet for Developers -->
         <div class="pt-4">
-          <div class="font-mono text-[11px] font-bold text-zinc-600 mb-1.5 uppercase">CSS Rule for Primary Button:</div>
+          <div class="font-mono text-[11px] font-bold text-zinc-500 mb-1.5 uppercase">CSS Rule for Primary Button:</div>
           <pre class="code-snippet"><code>.btn-brutal-primary {
   background-color: #ff4400;
   color: #ffffff;
@@ -731,7 +907,7 @@
         <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">Tags &amp; Status Chips</h2>
       </div>
 
-      <div class="card-brutal p-6 bg-white space-y-6">
+      <div class="card-brutal p-6 space-y-6">
         <div>
           <div class="font-mono text-xs font-bold text-zinc-500 uppercase mb-3">Subsystem Category Tags:</div>
           <div class="flex flex-wrap items-center gap-2">
@@ -771,7 +947,7 @@
         <!-- Pattern 1: Reverie Feature Card -->
         <div class="space-y-2">
           <div class="font-mono text-xs font-bold text-zinc-500 uppercase">Pattern A: Feature / Request Card</div>
-          <article class="relative card-brutal-interactive p-5 bg-white flex gap-4 items-start">
+          <article class="relative card-brutal-interactive p-5 flex gap-4 items-start">
             <span class="absolute top-1.5 left-1.5 font-mono text-[9px] text-zinc-400 select-none pointer-events-none leading-none">+</span>
             <span class="absolute top-1.5 right-1.5 font-mono text-[9px] text-zinc-400 select-none pointer-events-none leading-none">+</span>
             <span class="absolute bottom-1.5 left-1.5 font-mono text-[9px] text-zinc-400 select-none pointer-events-none leading-none">+</span>
@@ -794,7 +970,7 @@
               <h3 class="font-space text-base font-black text-black leading-snug tracking-tight">
                 Wayland &amp; Hyprland Native Taskbar Mini-Widget Support
               </h3>
-              <p class="mt-1.5 text-xs text-zinc-700 leading-relaxed font-sans">
+              <p class="mt-1.5 text-xs text-zinc-700 leading-relaxed font-sans font-medium">
                 Provide native layer-shell integration so the taskbar-docked mini-widget capsule docks cleanly on Wayland compositors.
               </p>
               <div class="mt-2.5 pt-2 border-t border-zinc-200 font-mono text-[10px] text-zinc-500 flex justify-between">
@@ -841,7 +1017,7 @@
         <h2 class="font-space text-2xl sm:text-3xl font-black tracking-tight text-black">Form Fields &amp; Controls</h2>
       </div>
 
-      <div class="card-brutal p-6 sm:p-8 bg-white max-w-2xl space-y-5">
+      <div class="card-brutal p-6 sm:p-8 max-w-2xl space-y-5">
         <!-- Text Input -->
         <div>
           <label class="block font-mono text-xs font-bold text-black uppercase mb-1">
@@ -886,7 +1062,7 @@
   <!-- ========================================================================= -->
   <!-- FOOTER SPEC                                                               -->
   <!-- ========================================================================= -->
-  <footer class="border-t-2 border-black bg-white py-12 px-4 text-center font-mono text-xs font-bold text-zinc-600">
+  <footer class="border-t-2 border-black bg-white py-12 px-4 text-center font-mono text-xs font-bold text-zinc-600 transition-colors duration-150">
     <div class="max-w-7xl mx-auto space-y-2">
       <div class="text-black font-black uppercase tracking-wider">
         SABRY LABS // DIGITAL ATELIER FOR DESKTOP, PHONE &amp; WEB
@@ -897,7 +1073,7 @@
   </footer>
 
   <!-- Toast Notification for Copy -->
-  <div id="toast" class="fixed bottom-6 right-6 px-4 py-2 bg-black text-white font-mono text-xs font-bold border-2 border-[#ff4400] shadow-brutal opacity-0 pointer-events-none transition-opacity duration-150 rounded-[2px]">
+  <div id="toast" class="fixed bottom-6 right-6 px-4 py-2 bg-black text-white font-mono text-xs font-bold border-2 border-[#ff4400] shadow-brutal opacity-0 pointer-events-none transition-opacity duration-150 rounded-[2px] z-50">
     COPIED HEX TO CLIPBOARD
   </div>
 
@@ -911,23 +1087,40 @@
       setTimeout(() => { toast.style.opacity = '0'; }, 1600);
     }
 
-    // Theme Toggle
+    // Theme Toggle Functionality with Persistence
     const themeBtn = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const themeLabel = document.getElementById('themeLabel');
-    let isDark = false;
 
-    themeBtn.addEventListener('click', () => {
-      isDark = !isDark;
+    function applyTheme(isDark) {
       if (isDark) {
         document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
         themeIcon.innerText = '🌙';
         themeLabel.innerText = 'TACTICAL DARK';
       } else {
         document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
         themeIcon.innerText = '☀️';
         themeLabel.innerText = 'SWISS LIGHT';
       }
+      try {
+        localStorage.setItem('sl_theme', isDark ? 'dark' : 'light');
+      } catch (e) {}
+    }
+
+    // Initialize from localStorage
+    let savedTheme = 'light';
+    try {
+      savedTheme = localStorage.getItem('sl_theme') || 'light';
+    } catch(e) {}
+
+    let currentIsDark = savedTheme === 'dark';
+    applyTheme(currentIsDark);
+
+    themeBtn.addEventListener('click', () => {
+      currentIsDark = !currentIsDark;
+      applyTheme(currentIsDark);
     });
   </script>
 </body>
