@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+*.exe
+/public/downloads/
 
 # debug
 npm-debug.log*
