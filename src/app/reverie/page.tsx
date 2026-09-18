@@ -73,11 +73,12 @@ export default function ReverieStorefront() {
             </a>
 
             <a
-              href="/downloads/Reverie-Setup.exe"
-              className="btn-brutal-secondary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-wider"
+              href="https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1"
+              className="lemonsqueezy-button btn-brutal-secondary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-wider"
+              data-theme="light"
             >
               <Download className="h-4 w-4" strokeWidth={2.2} />
-              <span>Download 14-Day Trial (.exe)</span>
+              <span>Get 14-Day Free Trial</span>
             </a>
           </div>
 
@@ -507,11 +508,12 @@ export default function ReverieStorefront() {
               </a>
 
               <a
-                href="/downloads/Reverie-Setup.exe"
-                className="btn-brutal-secondary py-4 px-6 text-center text-xs font-mono uppercase tracking-wider inline-flex items-center justify-center gap-2 font-bold"
+                href="https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1"
+                className="lemonsqueezy-button btn-brutal-secondary py-4 px-6 text-center text-xs font-mono uppercase tracking-wider inline-flex items-center justify-center gap-2 font-bold"
+                data-theme="light"
               >
                 <Download className="h-4 w-4" strokeWidth={2.2} />
-                <span>14-Day Free Trial (.exe)</span>
+                <span>14-Day Free Trial</span>
               </a>
             </div>
 
@@ -569,7 +571,7 @@ export default function ReverieStorefront() {
                 How does the 14-day free trial work?
               </h4>
               <p className="mt-2 text-sm text-black font-medium leading-relaxed">
-                Download the standalone .exe installer. You get 14 full days of completely unrestricted access with all themes, soundscapes, and widget features. No credit card or email required to test.
+                Claim the 14-day free trial through our Lemon Squeezy checkout. You receive an instant trial license and download link with 14 full days of completely unrestricted access to all themes, soundscapes, and widget features.
               </p>
             </div>
 

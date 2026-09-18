@@ -115,4 +115,4 @@ Reverie is built on the belief that **software should be treated like a fine phy
 
 Reverie was built to solve my own problems, but it has completely transformed how I work. It is quiet, tactile, responsive, and respectful of your attention.
 
-If you are tired of abrasive alarms, bloated web apps, and recurring subscription rent, [download the 14-day free trial of Reverie](/downloads/Reverie-Setup.exe) or explore the [one-page showcase](/reverie).
+If you are tired of abrasive alarms, bloated web apps, and recurring subscription rent, [claim the 14-day free trial of Reverie](https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11) or explore the [one-page showcase](/reverie).

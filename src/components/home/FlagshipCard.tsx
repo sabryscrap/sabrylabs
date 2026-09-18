@@ -155,11 +155,11 @@ export default function FlagshipCard() {
               <Button
                 variant="outline"
                 size="md"
-                href="/apps/reverie#download-trial"
-                className="font-mono text-xs uppercase tracking-wider text-[#a1a1aa] hover:text-white"
+                href="https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1"
+                className="lemonsqueezy-button font-mono text-xs uppercase tracking-wider text-[#a1a1aa] hover:text-white"
               >
                 <Download className="h-3.5 w-3.5" />
-                <span>14-Day Trial (.exe)</span>
+                <span>14-Day Free Trial</span>
               </Button>
             </div>
           </div>

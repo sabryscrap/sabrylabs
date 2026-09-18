@@ -81,10 +81,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/downloads/Reverie-Setup.exe"
-                  className="hover:text-[#ff4400] transition-colors inline-flex items-center gap-1"
+                  href="https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1"
+                  className="lemonsqueezy-button hover:text-[#ff4400] transition-colors inline-flex items-center gap-1"
+                  data-theme="light"
                 >
-                  Download Reverie Trial (.exe)
+                  Get Reverie 14-Day Free Trial
                 </a>
               </li>
             </ul>

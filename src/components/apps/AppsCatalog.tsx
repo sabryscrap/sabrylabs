@@ -67,6 +67,7 @@ export interface CatalogApp {
       label: string;
       href: string;
       isDownload?: boolean;
+      isLemonSqueezy?: boolean;
     };
   };
 }
@@ -115,9 +116,9 @@ export const CATALOG_APPS: CatalogApp[] = [
         href: "/reverie",
       },
       tertiary: {
-        label: "Download Trial (.exe)",
-        href: "/downloads/Reverie-Setup.exe",
-        isDownload: true,
+        label: "14-Day Free Trial",
+        href: "https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1",
+        isLemonSqueezy: true,
       },
     },
   },
@@ -392,7 +393,8 @@ export default function AppsCatalog() {
                     {app.actions.tertiary && (
                       <a
                         href={app.actions.tertiary.href}
-                        className="btn-brutal-secondary px-3 py-2 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5"
+                        className={`${app.actions.tertiary.isLemonSqueezy ? "lemonsqueezy-button " : ""}btn-brutal-secondary px-3 py-2 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5`}
+                        data-theme={app.actions.tertiary.isLemonSqueezy ? "light" : undefined}
                       >
                         <Download className="h-3.5 w-3.5 text-[#ff4400]" />
                         <span>{app.actions.tertiary.label}</span>

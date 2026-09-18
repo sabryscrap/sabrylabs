@@ -232,8 +232,9 @@ export default function SabryLabsStudioHomepage() {
                   </a>
 
                   <a
-                    href="/downloads/Reverie-Setup.exe"
-                    className="text-xs font-mono font-bold text-black hover:text-[#ff4400] inline-flex items-center gap-1.5 px-3 py-2 border-2 border-transparent hover:border-black rounded-[2px]"
+                    href="https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1"
+                    className="lemonsqueezy-button text-xs font-mono font-bold text-black hover:text-[#ff4400] inline-flex items-center gap-1.5 px-3 py-2 border-2 border-transparent hover:border-black rounded-[2px]"
+                    data-theme="light"
                   >
                     <Download className="h-3.5 w-3.5 text-[#ff4400]" />
                     <span>14-Day Free Trial</span>

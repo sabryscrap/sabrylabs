@@ -29,7 +29,7 @@ const DOWNLOAD_OPTIONS: DownloadOption[] = [
     osBadge: "STANDALONE PORTABLE .EXE",
     filename: "Reverie-Portable.exe",
     filesize: "96.4 MB",
-    href: "/downloads/Reverie-Portable.exe",
+    href: "https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1",
     type: "portable",
     primary: true,
   },
@@ -38,7 +38,7 @@ const DOWNLOAD_OPTIONS: DownloadOption[] = [
     osBadge: "STANDARD SETUP INSTALLER",
     filename: "Reverie-Setup.exe",
     filesize: "98.1 MB",
-    href: "/downloads/Reverie-Setup.exe",
+    href: "https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1",
     type: "installer",
   },
   {
@@ -46,7 +46,7 @@ const DOWNLOAD_OPTIONS: DownloadOption[] = [
     osBadge: "UNIVERSAL BINARY (.DMG)",
     filename: "Reverie-Universal.dmg",
     filesize: "104.2 MB",
-    href: "/downloads/Reverie-Universal.dmg",
+    href: "https://sabrylabs.lemonsqueezy.com/checkout/buy/d1c62f6d-d059-47bf-b589-1255134c2a11?embed=1",
     type: "dmg",
   },
 ];
